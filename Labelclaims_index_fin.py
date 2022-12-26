@@ -249,7 +249,10 @@ def fetch_email_by_md5(es_, md5, sourcelist):
                 ]          
         }
     }
-    t = Search(using=es_, index='cantire-202*')
+    t = Search(using=es_, index=["cantire-2021-01","cantire-2021-02","cantire-2021-03","cantire-2021-04","cantire-2021-05", "cantire-2021-06",
+              "cantire-2021-07","cantire-2021-08","cantire-2021-09","cantire-2021-10","cantire-2021-11","cantire-2021-12","cantire-2022-01",
+              "cantire-2022-02","cantire-2022-03","cantire-2022-04","cantire-2022-05","cantire-2022-06","cantire-2022-07","cantire-2022-08",
+              "cantire-2022-09","cantire-2022-10","cantire-2022-11"])
     t.query = Q(query_2)
     t = t.source(sourcelist)
     for mail in t.scan():
